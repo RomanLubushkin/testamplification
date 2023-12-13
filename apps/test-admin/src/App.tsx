@@ -5,6 +5,10 @@ import { theme } from "./theme/theme";
 import Login from "./Login";
 import "./App.scss";
 import Dashboard from "./pages/Dashboard";
+import { SlugList } from "./slug/SlugList";
+import { SlugCreate } from "./slug/SlugCreate";
+import { SlugEdit } from "./slug/SlugEdit";
+import { SlugShow } from "./slug/SlugShow";
 import { jwtAuthProvider } from "./auth-provider/ra-auth-jwt";
 
 const App = (): React.ReactElement => {
@@ -30,7 +34,15 @@ const App = (): React.ReactElement => {
         theme={theme}
         dashboard={Dashboard}
         loginPage={Login}
-      ></Admin>
+      >
+        <Resource
+          name="Slug"
+          list={SlugList}
+          edit={SlugEdit}
+          create={SlugCreate}
+          show={SlugShow}
+        />
+      </Admin>
     </div>
   );
 };
